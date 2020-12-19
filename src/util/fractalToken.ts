@@ -85,3 +85,52 @@ export const getCurrentCycle  = async () => {
 }
 
 
+
+export const getTaxFee  = async () => {
+  if (!tokenContract) {
+    return null;
+  }
+  const result = await callMethod(tokenContract.methods['getTaxFee'], []);
+  return result;
+}
+
+export const getCurrentTotalTax  = async () => {
+  if (!tokenContract) {
+    return null;
+  }
+  const result = await callMethod(tokenContract.methods['getCurrentTotalTax'], []);
+  return result;
+}
+
+export const getDevFee  = async () => {
+  if (!tokenContract) {
+    return null;
+  }
+  const result = await callMethod(tokenContract.methods['getDevFee'], []);
+  return result;
+}
+
+export const getBurnFee  = async () => {
+  if (!tokenContract) {
+    return null;
+  }
+  const result = await callMethod(tokenContract.methods['getBurnFee'], []);
+  return result;
+}
+
+export const getLockFee  = async () => {
+  if (!tokenContract) {
+    return null;
+  }
+  const result = await callMethod(tokenContract.methods['getLockFee'], []);
+  return result;
+}
+
+export const getCycleLimit  = async () => {
+  if (!tokenContract) {
+    return null;
+  }
+  const result = await callMethod(tokenContract.methods['getCycleLimit'], []);
+  return result;
+}
+

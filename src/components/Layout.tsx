@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
         color: #fff;
         min-height: 100vh;
         min-width: 100vw;
-        overflow: hidden;
         width: auto;
         margin:0;
         padding:0;
@@ -17,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
         
         #bgVideo {
             z-index: -10;
-            position: absolute;
+            position: fixed;
             top: 0;
             width: 100%;
             height: 100%;
