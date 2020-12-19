@@ -100,22 +100,22 @@ export default ({ address }: { address: string; }) => {
         setCurrentCycle(cycle);
 
         const taxFee = await getTaxFee();
-        setCurrentTaxFee(taxFee);
+        setCurrentTaxFee(parseFloat(taxFee));
 
         const totalTax = await getCurrentTotalTax();
-        setCurrentTotalTax(totalTax);
+        setCurrentTotalTax(parseFloat(totalTax));
 
         const devFee = await getDevFee();
-        setCurrentDevFee(devFee);
+        setCurrentDevFee(parseFloat(devFee));
 
         const burnFee = await getBurnFee()
-        setCurrentBurnFee(burnFee);
+        setCurrentBurnFee(parseFloat(burnFee));
 
         const lockFee = await getLockFee();
-        setCurrentLockFee(lockFee);
+        setCurrentLockFee(parseFloat(lockFee));
 
         const cycleLimit = await getCycleLimit();
-        setCurrentCycleLimit(cycleLimit);
+        setCurrentCycleLimit(parseFloat(cycleLimit));
 
     }, [address]);
 
@@ -170,17 +170,24 @@ export default ({ address }: { address: string; }) => {
                 {renderValueWithData('FRCTL Supply:', `${totalSupply.toFormat(4)} FRCTL`)}
                 {renderValueWithData('FRCTL Burned:', `${totalBurn.toFormat(4)} FRCTL`)}
                 {renderValueWithData('Target Pool:', `${currentTargetPoolName}`)}
-                {renderValueWithData('Current Cycle:', `${currentCycle} out of ${currentCycleLimit}`)}
+                {renderValueWithData('Current Cycle:', `${currentCycle} out of ${currentCycleLimit + 1}`)}
                 {/* {renderValueWithData('Last Fractalize:', `${lastFractalizeTimestamp ? moment(new Date(lastFractalizeTimestamp)).format("dddd, MMMM Do YYYY, h:mm:ss a") : ''}`)} */}
                 {/* {renderValueWithData('Fractalize available in:', timeToFractalize > 0 ? <Countdown date={timeToFractalize} renderer={renderer} /> : '0 Minutes')} */}
+                <hr />
                 {renderValueWithData('Tax Fee:', `${(currentTaxFee * 0.1)}%`)}
-                {renderValueWithData('Total Current Tax:', `${(currentTotalTax * 0.1)}%`)}
                 {renderValueWithData('Dev Fee:', `${(currentDevFee * 0.1)}%`)}
-                {renderValueWithData('Burned/Locked Fee:', `${((currentBurnFee + currentLockFee) * 0.1)}%`)}
+                {renderValueWithData('Burn (incl. lock fee):', `${((currentBurnFee + currentLockFee) * 0.1)}%`)}
+                <hr />
+                {renderValueWithData('TOTAL Current Tax:', `${(currentTotalTax * 0.1)}%`)}
             </div>
             <div style={{ textAlign: 'center' }}>
                 <a className="fractalize-button" href="https://telegram.me/collablandbot?start=rec57DdDrMS3Qlxex_-tpc" target="_blank">
                     FEE VOTE TG
+                </a>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+                <a className="fractalize-button" href="https://www.dextools.io/app/uniswap/pair-explorer/0x90a257c6e5c0d01820516a690f02911b59eff92c" target="_blank">
+                    DEX TOOLS
                 </a>
             </div>
         </StyledDashboard>

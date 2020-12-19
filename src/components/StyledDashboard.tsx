@@ -15,7 +15,7 @@ export const StyledDashboard = styled.div`
         display: inline-block;
         border: none;
         padding: .8rem 1.4rem;
-        margin: auto;
+        margin: .8rem auto;
         text-decoration: none;
         color: #000;
         background-color: #ffffff;
