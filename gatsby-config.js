@@ -2,6 +2,7 @@ module.exports = {
     siteMetadata: {
         title: 'FractalDefi'
     },
+    pathPrefix: "/frontend",
     plugins: [
         {
             resolve: 'gatsby-plugin-page-creator',
@@ -13,3 +14,4 @@ module.exports = {
         'gatsby-plugin-styled-components'
     ]
 };
+

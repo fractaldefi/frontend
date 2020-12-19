@@ -54,7 +54,7 @@
     "http-server": "npx http-server public --gzip",
     "clean": "gatsby clean",
     "test": "",
-    "deploy": "npm run cleanup && npm run build && gh-pages -d public"
+    "deploy": "npm run cleanup && npx gatsby build --prefix-paths && gh-pages -d public -r https://fractaldefi@github.com/fractaldefi/frontend.git"
   },
   "license": ""
 }
