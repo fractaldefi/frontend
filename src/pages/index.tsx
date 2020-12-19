@@ -5,8 +5,10 @@ import Dashboard from '../components/Dashboard';
 import Layout from '../components/Layout';
 
 export default class App extends React.Component<{}, { clientAddress: string; }> {
-    constructor(props: {}) {
-        super(props);
+    public state = { clientAddress: '' };
+
+    // this logic goes after mount to avoid gatsby static generator running it
+    public compoonentDidMount() {
         let clientAddress = null;
         if (typeof window !== 'undefined') {
             if (isMobile) {
@@ -35,7 +37,9 @@ export default class App extends React.Component<{}, { clientAddress: string; }>
                 }
             }
         }
-        this.state = { clientAddress };
+        if (clientAddress) {
+            this.setState({ clientAddress })
+        }
     }
 
 
@@ -53,3 +57,4 @@ export default class App extends React.Component<{}, { clientAddress: string; }>
         );
     }
 }
+
